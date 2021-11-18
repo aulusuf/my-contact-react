@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const TableData = (props) => {
   return (
@@ -10,8 +11,12 @@ const TableData = (props) => {
       <td>{props.data.email}</td>
       <td>
         <div className="d-flex justify-content-center">
-          <button className="btn btn-primary">Detail</button>
-          <button className="btn btn-warning mx-1">Edit</button>
+          <Link to={`/${props.data.id}`} className="btn btn-primary">
+            Detail
+          </Link>
+          <Link to={`/edit/${props.id}`} className="btn btn-warning mx-1">
+            Edit
+          </Link>
           <button
             className="btn btn-danger"
             onClick={() => props.remove(props.data.id)}

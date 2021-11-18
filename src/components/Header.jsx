@@ -1,10 +1,12 @@
-import React from "react";
+import React, { Fragment } from "react";
 
-const Header = ({ tittle }) => {
+const Header = (props) => {
   return (
-    <header className="py-3">
-      <h3 className="text-center">{tittle}</h3>
-    </header>
+    <Fragment>
+      <header className="py-3">
+        <h3 className="text-center">{props.tittle}</h3>
+      </header>
+    </Fragment>
   );
 };
 

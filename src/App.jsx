@@ -1,26 +1,42 @@
-import React from "react";
+import React, { Fragment, Component } from "react";
 import Navbar from "./components/Navbar";
-import Header from "./components/Header";
-import Table from "./components/Table";
+import Add from "./views/Add";
+import Detail from "./views/Detail";
+import Edit from "./views/Edit";
+import Home from "./views/Home";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 // import axios from "axios";
 
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "./";
 
-class App extends React.Component {
+class App extends Component {
   render() {
     return (
-      <div>
-        <Navbar />
-        <Header tittle="All Contact" />
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-12">
-              <Table />
+      <BrowserRouter>
+        <Fragment>
+          <Navbar />
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-12">
+                <Switch>
+                  <Route path="/" exact>
+                    <Home />
+                  </Route>
+                  <Route path="/add">
+                    <Add />
+                  </Route>
+                  <Route path="/:id">
+                    <Detail />
+                  </Route>
+                  <Route path="/edit/:id">
+                    <Edit />
+                  </Route>
+                </Switch>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </Fragment>
+      </BrowserRouter>
     );
   }
 }
